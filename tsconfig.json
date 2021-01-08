@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", //输出目录
+    "sourceMap": true, // 是否生成 sourceMap 文件
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "ES5",
+    "jsx": "react",
+    "esModuleInterop": true // 允许在 commonjs 模块和 es module 进行转换
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
