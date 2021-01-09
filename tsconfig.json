@@ -6,7 +6,13 @@
     "module": "commonjs",
     "target": "ES5",
     "jsx": "react",
-    "esModuleInterop": true // 允许在 commonjs 模块和 es module 进行转换
+    "esModuleInterop": true, // 允许在 commonjs 模块和 es module 进行转换
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "./src/**/*"
