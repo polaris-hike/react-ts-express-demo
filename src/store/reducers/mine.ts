@@ -1,6 +1,6 @@
 import {AnyAction} from 'redux';
 
-interface MineState {
+export interface MineState {
 
 }
 const initialState:MineState ={
