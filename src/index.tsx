@@ -11,8 +11,9 @@ import history from '@/history';
 import Home from '@/routes/Home';
 import Mine from '@/routes/Mine';
 import Profile from '@/routes/Profile';
+import Tabs from "@/components/Tabs";
 
-  ReactDOM.render(<Provider store={store}>
+ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
       <ConfigProvider locale={zh_CN}>
         <main className="main-container">
@@ -22,6 +23,7 @@ import Profile from '@/routes/Profile';
             <Route path="/profile" exact component={Profile} />
           </Switch>
         </main>
+        <Tabs />
       </ConfigProvider>
     </ConnectedRouter>
   </Provider>, document.getElementById('root'));

@@ -1,8 +1,6 @@
+import { MineState } from '@/types/state';
 import {AnyAction} from 'redux';
 
-export interface MineState {
-
-}
 const initialState:MineState ={
 
 }

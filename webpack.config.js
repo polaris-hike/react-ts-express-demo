@@ -56,8 +56,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'./src/index.html',
     }),
-    new webpack.HotModuleReplacementPlugin({
-      open:true
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 }

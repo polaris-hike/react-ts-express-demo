@@ -1,8 +1,5 @@
+import { ProfileState } from '@/types/state';
 import {AnyAction} from 'redux';
-
-export interface ProfileState {
-
-}
 const initialState:ProfileState ={
 
 }
