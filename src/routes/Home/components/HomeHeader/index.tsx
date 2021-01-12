@@ -19,23 +19,21 @@ const transitionStyles= {
     unmounted:{opacity: 0},
 }
 
-
 interface Props {
     currentCategory:string;
     setCurrentCategory:(currentCategory:string)=>any;
 }
 
 function HomeHeader(props:Props) {
-    const [isMenuVisible,setIsmenuVisible] = useState(false);
+    const [isMenuVisible,setIsMenuVisible] = useState(false);
     const setCurrentCategory = (event:React.MouseEvent<HTMLUListElement>)=>{
         const target:HTMLUListElement = event.target as HTMLUListElement;
         const category = target.dataset.category;
         props.setCurrentCategory(category)
-        setIsmenuVisible(false)
+        setIsMenuVisible(false)
     }
     const click = ()=>{
-        console.log(1);
-        setIsmenuVisible(!isMenuVisible)
+        setIsMenuVisible(!isMenuVisible)
     }
     return (
         <header className="home-header">
