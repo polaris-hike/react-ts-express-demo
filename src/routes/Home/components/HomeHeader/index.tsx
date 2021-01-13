@@ -33,15 +33,11 @@ function HomeHeader(props:Props) {
         props.setCurrentCategory(category)
         setIsmenuVisible(false)
     }
-    const click = ()=>{
-        console.log(1);
-        setIsmenuVisible(!isMenuVisible)
-    }
     return (
         <header className="home-header">
             <div className="logo-header">
                 <img src={logo} alt=""/>
-                <BarsOutlined onClick={click} />
+                <BarsOutlined onClick={()=>setIsmenuVisible(!isMenuVisible)} />
             </div>
             <Transition in={isMenuVisible} timeout={duration}>
                 {
