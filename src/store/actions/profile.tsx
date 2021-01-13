@@ -1,10 +1,19 @@
 import * as actionTypes from '@/store/action-types'
+import {validate} from '@/api/profile';
+import {push} from 'connected-react-router'
 
 export default  {
-    setCurrentCategory(currentCategory:string){
-        return {
-            type:actionTypes.SET_CURRENT_CATEGORY,
-            payload:currentCategory
-        }
-    }
+   validate() {
+      return {
+         type:actionTypes.VALIDATE,
+         payload:validate()
+      }
+   },
+   logout(){
+      return function (dispath:any) {
+         console.log(11);
+         sessionStorage.removeItem('access_token');
+         dispath(push('/login'))
+      }
+   }
 }

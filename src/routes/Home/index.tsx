@@ -13,7 +13,6 @@ function Home(props:Props) {
             currentCategory={props.currentCategory}
             setCurrentCategory={props.setCurrentCategory}
         />
-        Home
     </div>
   )
 }
