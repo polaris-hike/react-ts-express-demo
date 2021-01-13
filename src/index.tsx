@@ -12,6 +12,8 @@ import Home from '@/routes/Home';
 import Mine from '@/routes/Mine';
 import Profile from '@/routes/Profile';
 import Tabs from "@/components/Tabs";
+import Login from "@/routes/Login";
+import Register from "@/routes/Register";
 
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
@@ -21,6 +23,8 @@ ReactDOM.render(<Provider store={store}>
             <Route path="/" exact component={Home} />
             <Route path="/mine" exact component={Mine} />
             <Route path="/profile" exact component={Profile} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
           </Switch>
         </main>
         <Tabs />
