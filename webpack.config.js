@@ -1,8 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin');
 const path = require('path');
-
-
 
 module.exports = {
   mode:process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -31,6 +30,20 @@ module.exports = {
       {
         test: /\.(j|t)sx?$/,
         loader:'ts-loader',
+        options:{
+          transpileOnly:true, // 只转移不检查
+          getCustomTransformers:()=>({
+            before:[
+              tsImportPluginFactory({
+                "libraryName":'antd',
+                "libraryDirectory":'es',
+                "style":'css'
+              })]
+          }),
+          compilerOptions:{
+            module: 'es2015'
+          }
+        },
         exclude:/node_modules/
       },
       {
