@@ -7,5 +7,5 @@ export function validate() {
 }
 
 export function register<T>(values:RegisterPayload) {
-  return axios.post<T,AxiosResponse<T>>('/user/register',values)
+  return axios.post<T,T>('/user/register',values)
 }

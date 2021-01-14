@@ -20,28 +20,28 @@ function Register(props: Props) {
         <>
             <Nav history={props.history}>用户注册</Nav>
             <Form className="login-form" onFinish={handleSubmit}>
-                <Form.Item name="username" rules={[
+                <Form.Item name="username" label="用户名" rules={[
                     {
                         required: true, message: '用户名不能为空'
                     }
                 ]}>
                     <Input placeholder="用户名" prefix={<UserOutlined style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                 </Form.Item>
-                <Form.Item name="password" rules={[
+                <Form.Item name="password" label="密码" rules={[
                     {
                         required: true, message: '密码不能为空'
                     }
                 ]}>
                     <Input placeholder="密码" prefix={<LockOutlined style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                 </Form.Item>
-                <Form.Item name="confirmPassword" rules={[
+                <Form.Item name="confirmPassword" label="确认密码" rules={[
                     {
                         required: true, message: '确认密码不能为空'
                     }
                 ]}>
                     <Input placeholder="确认密码" prefix={<LockOutlined style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                 </Form.Item>
-                <Form.Item name="email" rules={[
+                <Form.Item name="email" label="邮箱" rules={[
                     {
                         required: true, message: '邮箱不能为空'
                     },{

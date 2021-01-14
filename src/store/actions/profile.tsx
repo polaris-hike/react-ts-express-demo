@@ -23,8 +23,9 @@ export default  {
       return function (dispatch:any,getState:any) {
          (async function () {
             try {
-              const result:AxiosResponse<RegisterData> = await register<RegisterData>(values)
-               if(result.data.success) {
+              const result:RegisterData = await register<RegisterData>(values)
+               if(result.success) {
+                  message.success("注册成功");
                   dispatch(push('/login'))
                }else {
                   message.error("注册失败")
