@@ -13,8 +13,6 @@ type Props = PropsWithChildren<RouteComponentProps & ReturnType<typeof mapStateT
 
 function Register(props: Props) {
     const handleSubmit = (event:React.FormEvent<HTMLFormElement>)=>{
-        console.log(event);
-
         event.preventDefault();
     }
     return (

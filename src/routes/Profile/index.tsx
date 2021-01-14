@@ -12,10 +12,6 @@ function Profile(props: Props) {
   useEffect(()=>{
     props.validate()
   },[]);
-  const handleLogin = ()=>{
-      console.log(1);
-      props.history.push('/login')
-  }
   let content;
   if (props.loginState === LOGIN_TYPE.UN_VALIDATE) {
     content = null;
@@ -34,7 +30,7 @@ function Profile(props: Props) {
       <>
          <Alert type="warning" message="未登录" description="亲爱的用户你好，你尚未登录，请你注册或者登录" />
          <div style={{textAlign:'center',padding:'.5rem'}}>
-           <Button type="dashed" onClick={handleLogin}>登录</Button>
+           <Button type="dashed" onClick={()=>props.history.push('/login')}>登录</Button>
            <Button type="dashed" onClick={()=>props.history.push('/register')}>注册</Button>
          </div>
       </>

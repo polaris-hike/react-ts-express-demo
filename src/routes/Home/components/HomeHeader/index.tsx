@@ -36,7 +36,7 @@ function HomeHeader(props:Props) {
         setIsMenuVisible(!isMenuVisible)
     }
     return (
-        <header className="home-header">
+        <header className="home-header" onClick={click}>
             <div className="logo-header">
                 <img src={logo} alt=""/>
                 <BarsOutlined onClick={click} />
