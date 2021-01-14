@@ -35,7 +35,7 @@ export default function (state: ProfileState = initialState, action: AnyAction):
         ...state,
         user:{
           ...state.user,
-          advatar:action.payload
+          avatar:action.payload
         }
       };
     default:
