@@ -1,7 +1,5 @@
 import {RouterState} from "connected-react-router";
-export interface HomeState {
-  currentCategory:string
-}
+import {HomeState} from "@/types/home";
 
 export interface User {
   id:string;
