@@ -14,7 +14,7 @@ export default function (state: ProfileState = initialState, action: AnyAction):
       if (action.payload.success) {
         return {
           loginState: LOGIN_TYPE.LOGINED,
-          user: action.payload,
+          user: action.payload.data,
           error: null
         };
       } else {

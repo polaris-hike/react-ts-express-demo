@@ -12,7 +12,7 @@ import {LoginPayload} from '@/types/profile';
 
 type Props = PropsWithChildren<RouteComponentProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps>;
 
-function Register(props: Props) {
+function Login(props: Props) {
   const handleSubmit = (values:LoginPayload)=>{
     props.login(values)
   }
@@ -47,4 +47,4 @@ const mapStateToProps = (state: CombinedState): ProfileState => state.profile;
 
 export default connect(
   mapStateToProps, actions
-)(Register)
+)(Login)

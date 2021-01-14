@@ -13,16 +13,18 @@ function Profile(props: Props) {
     props.validate()
   },[]);
   let content;
+  console.log('loginState');
+  console.log(props);
   if (props.loginState === LOGIN_TYPE.UN_VALIDATE) {
     content = null;
   } else if (props.loginState === LOGIN_TYPE.LOGINED) {
     content = (
       <div className="user-info">
         <Descriptions title="当前用户">
-          <Descriptions.Item label="用户名">邬绪威</Descriptions.Item>
-          <Descriptions.Item label="邮箱">2509165479@qq.con</Descriptions.Item>
+          <Descriptions.Item label="用户名">{props.user.username}</Descriptions.Item>
+          <Descriptions.Item label="邮箱">{props.user.email}</Descriptions.Item>
         </Descriptions>
-        <Button type="ghost" onClick={()=>props.logout()}>退出</Button>
+        <Button type="primary" danger onClick={()=>props.logout()}>退出</Button>
       </div>
     );
   } else {
