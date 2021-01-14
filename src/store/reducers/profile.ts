@@ -30,6 +30,14 @@ export default function (state: ProfileState = initialState, action: AnyAction):
         user: null,
         error: null
       };
+    case actionTypes.SET_AVATAR:
+      return {
+        ...state,
+        user:{
+          ...state.user,
+          advatar:action.payload
+        }
+      };
     default:
       break;
   }
