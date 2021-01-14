@@ -7,7 +7,7 @@ export interface User {
   id:string;
   username:string;
   email:string;
-  advatar:string;
+  avatar:string;
 }
 export enum LOGIN_TYPE {
   UN_VALIDATE = 'UN_VALIDATE', // 未验证

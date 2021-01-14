@@ -21,7 +21,9 @@ function Profile(props: Props) {
     if (info.file.status === 'done') {
       getBase64(info.file.originFileObj, (value: string) => {
           setLoading(false);
-          props.setAvatar(value)
+        console.log('info.file.response.data');
+        console.log(info.file.response.data);
+        props.setAvatar(info.file.response.data);
         }
       );
     }
@@ -39,6 +41,8 @@ function Profile(props: Props) {
         <div style={{marginTop: 8}}>Upload</div>
       </div>
     );
+    console.log('props.user.advatar');
+    console.log(props.user.avatar);
     content = (
       <div className="user-info">
         <Descriptions title="当前用户">
@@ -54,7 +58,7 @@ function Profile(props: Props) {
               action="http://localhost:8003/user/uploadAvatar"
               onChange={handleChange}
             >
-              {props.user.advatar ? <img src={props.user.advatar } alt="avatar" style={{width: '100%'}}/> : uploadButton}
+              {props.user.avatar ? <img src={props.user.avatar} alt="avatar" style={{width: '100%'}}/> : uploadButton}
             </Upload>
           </Descriptions.Item>
         </Descriptions>
