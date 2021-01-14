@@ -1,6 +1,5 @@
 import axios from './index';
-import {RegisterPayload} from "@/types/profile";
-import {AxiosResponse} from "axios";
+import {RegisterPayload,LoginPayload} from "@/types/profile";
 
 export function validate() {
   return axios.get('/user/validate');
@@ -8,4 +7,8 @@ export function validate() {
 
 export function register<T>(values:RegisterPayload) {
   return axios.post<T,T>('/user/register',values)
+}
+
+export function login<T>(values:LoginPayload) {
+  return axios.post<T,T>('/user/login',values)
 }

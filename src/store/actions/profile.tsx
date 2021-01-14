@@ -1,10 +1,9 @@
 import * as actionTypes from '@/store/action-types'
-import {register, validate} from '@/api/profile';
+import {login, register, validate} from '@/api/profile';
 import {push} from 'connected-react-router'
-import {RegisterPayload} from "@/types/profile";
+import {LoginPayload, RegisterPayload} from '@/types/profile';
 import {message} from "antd";
-import {RegisterData} from "@/types/response";
-import {AxiosResponse} from "axios";
+import {LoginData, RegisterData} from '@/types/response';
 
 export default  {
    validate() {
@@ -35,5 +34,23 @@ export default  {
             }
          })()
       }
-   }
+   },
+   login(values:LoginPayload) {
+      return function (dispatch:any,getState:any) {
+         (async function () {
+            try {
+               const result:LoginData = await login<LoginData>(values)
+               if(result.success) {
+                  message.success("登录成功");
+                  sessionStorage.setItem('access_token',result.data)
+                  dispatch(push('/profile'))
+               }else {
+                  message.error("登录失败")
+               }
+            }catch (error) {
+               message.error('登录失败')
+            }
+         })()
+      }
+   },
 }
