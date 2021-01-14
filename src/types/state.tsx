@@ -3,7 +3,7 @@ export interface HomeState {
   currentCategory:string
 }
 
-interface User {
+export interface User {
   username:string;
   email:string;
   advatar:string
