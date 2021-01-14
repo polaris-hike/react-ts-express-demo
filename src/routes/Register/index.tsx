@@ -8,17 +8,18 @@ import {UserOutlined,LockOutlined,MailOutlined } from '@ant-design/icons';
 import {Link, RouteComponentProps} from "react-router-dom";
 import mapDispatchToProps from "@/store/actions/profile";
 import Nav from "@/components/Nav";
+import {RegisterPayload} from '@/types/profile';
 
 type Props = PropsWithChildren<RouteComponentProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps>;
 
 function Register(props: Props) {
-    const handleSubmit = (event:React.FormEvent<HTMLFormElement>)=>{
-        event.preventDefault();
+    const handleSubmit = (values:RegisterPayload)=>{
+        props.register(values)
     }
     return (
         <>
             <Nav history={props.history}>用户注册</Nav>
-            <Form className="login-form" onSubmitCapture={handleSubmit}>
+            <Form className="login-form" onFinish={handleSubmit}>
                 <Form.Item name="username" rules={[
                     {
                         required: true, message: '用户名不能为空'
