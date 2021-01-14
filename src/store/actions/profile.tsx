@@ -11,7 +11,6 @@ export default  {
    },
    logout(){
       return function (dispath:any) {
-         console.log(11);
          sessionStorage.removeItem('access_token');
          dispath(push('/login'))
       }
