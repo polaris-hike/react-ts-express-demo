@@ -21,8 +21,6 @@ function Profile(props: Props) {
     if (info.file.status === 'done') {
       getBase64(info.file.originFileObj, (value: string) => {
           setLoading(false);
-        console.log('info.file.response.data');
-        console.log(info.file.response.data);
         props.setAvatar(info.file.response.data);
         }
       );
@@ -41,8 +39,6 @@ function Profile(props: Props) {
         <div style={{marginTop: 8}}>Upload</div>
       </div>
     );
-    console.log('props.user.advatar');
-    console.log(props.user.avatar);
     content = (
       <div className="user-info">
         <Descriptions title="当前用户">

@@ -9,7 +9,6 @@ type Props = PropsWithChildren<{
 }>
 
 function HomeSliders(props: Props) {
-
   useEffect(() => {
     if (props.sliders.length === 0) {
       props.getSliders();
