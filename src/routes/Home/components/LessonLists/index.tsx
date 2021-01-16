@@ -2,7 +2,7 @@ import React, {PropsWithChildren, useEffect} from 'react';
 import './index.less';
 import {Lesson, Lessons} from '@/types';
 import {MenuFoldOutlined} from '@ant-design/icons/lib';
-import {Card} from 'antd';
+import {Alert, Button, Card} from 'antd';
 
 type Props = PropsWithChildren<{
   lessons: Lessons;
@@ -16,7 +16,7 @@ function LessonLists(props: Props) {
     }
   }, []);
   return (
-   <section>
+   <section className="lesson-list">
      <h2><MenuFoldOutlined />全部课程</h2>
      {
        props.lessons.list.map((item:Lesson,index:number)=>(
@@ -25,6 +25,16 @@ function LessonLists(props: Props) {
          </Card>
        ))
      }
+     {
+       props.lessons.hasMore
+           ? <Button
+               onClick={props.getLessons }
+               type="primary"
+               loading={props.lessons.loading}
+               block> {props.lessons.loading ? '加载中' : '加载更多'} </Button>
+           : <Alert style={{textAlign:'center'}}  message="到底啦" type="warning" />
+     }
+
    </section>
   );
 }

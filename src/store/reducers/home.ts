@@ -24,6 +24,13 @@ export default function (state: HomeState = initialState, action: AnyAction): Ho
       } else {
         return {...state, sliders: action.payload.data};
       }
+    case actionType.SET_LESSONS_LOADING:
+      return {
+        ...state, lessons: {
+          ...state.lessons,
+          loading: action.payload,
+        }
+      };
     case actionType.SET_LESSONS:
       return {
         ...state, lessons: {
