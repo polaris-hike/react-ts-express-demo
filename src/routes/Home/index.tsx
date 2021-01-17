@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useRef} from 'react';
+import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import HomeHeader from './components/HomeHeader';
 import {RouteComponentProps} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -7,11 +7,15 @@ import mapDispatchToProps from '@/store/actions/home';
 import './index.less';
 import HomeSliders from '@/routes/Home/components/HomeSliders';
 import LessonLists from '@/routes/Home/components/LessonLists';
+import {loadMore} from "@/utils";
 
 type Props = PropsWithChildren<RouteComponentProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps>;
 
 function Home(props: Props) {
   const homeContainer = useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+        loadMore(homeContainer.current,props.getLessons)
+  },[])
   return (
     <div>
       <HomeHeader
