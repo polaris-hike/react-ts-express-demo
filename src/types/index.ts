@@ -4,3 +4,4 @@ export * from './state';
 export * from './slider';
 export * from './home';
 export * from './lessons';
+export * from './cart';

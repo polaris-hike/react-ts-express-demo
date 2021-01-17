@@ -32,15 +32,12 @@ export default function (state: HomeState = initialState, action: AnyAction): Ho
         }
       };
     case actionType.SET_LESSONS:
-      return {
-        ...state, lessons: {
-          ...state.lessons,
-          loading: false,
-          list: [...state.lessons.list, ...action.payload.list],
-          hasMore: action.payload.hasMore,
-          offset: state.lessons.offset + action.payload.list.length
-        }
-      };
+
+      state.lessons.loading = false;
+      state.lessons.list = [...state.lessons.list, ...action.payload.list];
+      state.lessons.hasMore = action.payload.hasMore;
+      state.lessons.offset = state.lessons.offset + action.payload.list.length
+      return state
     case actionType.REFRESH_LESSONS:
       return {
         ...state, lessons: {

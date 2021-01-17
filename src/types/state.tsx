@@ -1,5 +1,5 @@
 import {RouterState} from "connected-react-router";
-import {HomeState} from "@/types/home";
+import {HomeState,CartState} from "./";
 
 export interface User {
   id:string;
@@ -23,6 +23,7 @@ export interface ProfileState {
 export interface CombinedState {
   home:HomeState,
   mine:MineState,
+  cart:CartState,
   profile:ProfileState,
   router:RouterState
 }

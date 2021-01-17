@@ -14,13 +14,13 @@ export function loadMore(element:HTMLElement,callback:Function) {
 export function downRefresh(element:HTMLElement,callback:Function) {
     let startY:number,distance:number,originalTop = element.offsetTop;
     element.addEventListener('touchstart',function (event:TouchEvent) {
+        const touchMove = throttle(_touchMove,60)
         if(element.offsetTop === originalTop && element.scrollTop === 0) {
             startY = event.touches[0].pageY;
-            element.addEventListener('touchmove',throttle(_touchMove,60))
+            element.addEventListener('touchmove',touchMove)
             element.addEventListener('touchend',touchEnd)
         }
         function _touchMove(event:TouchEvent) {
-            console.log('_touchMove');
             let pageY = event.touches[0].pageY;
             if(pageY > startY) {
                 distance = pageY - startY;
@@ -29,7 +29,7 @@ export function downRefresh(element:HTMLElement,callback:Function) {
         }
 
         function touchEnd(event:TouchEvent) {
-            element.removeEventListener('touchmove',_touchMove)
+            element.removeEventListener('touchmove',touchMove)
             element.removeEventListener('touchend',touchEnd)
             if(distance > 30){
                 callback()
