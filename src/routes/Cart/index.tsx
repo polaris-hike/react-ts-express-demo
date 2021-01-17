@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import {RouteComponentProps} from "react-router-dom";
 import {connect} from "react-redux";
 import {CartItem, CartState, CombinedState, Lesson} from "@/types";

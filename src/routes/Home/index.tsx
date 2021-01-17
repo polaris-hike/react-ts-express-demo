@@ -8,14 +8,23 @@ import './index.less';
 import HomeSliders from '@/routes/Home/components/HomeSliders';
 import LessonLists from '@/routes/Home/components/LessonLists';
 import {loadMore, downRefresh} from "@/utils";
+import {Spin} from "antd";
 
 type Props = PropsWithChildren<RouteComponentProps & ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps>;
 
 function Home(props: Props) {
     const homeContainer = useRef<HTMLDivElement>(null);
+    const lessonList = useRef(null);
     useEffect(() => {
-        loadMore(homeContainer.current, props.getLessons)
-        downRefresh(homeContainer.current, props.refreshLessons)
+        loadMore(homeContainer.current, props.getLessons);
+        downRefresh(homeContainer.current, props.refreshLessons);
+        homeContainer.current.addEventListener('scroll',()=>{
+            lessonList.current();
+            localStorage.setItem('homeScrollTop',homeContainer.current.scrollTop +'');
+        } );
+        if(props.lessons.list.length > 0) {
+            homeContainer.current.scrollTop = parseFloat(localStorage.getItem('homeScrollTop') );
+        }
     }, [])
     return (
         <div>
@@ -24,9 +33,12 @@ function Home(props: Props) {
                 setCurrentCategory={props.setCurrentCategory}
                 refreshLessons={props.refreshLessons}
             />
+            <div className="refresh-loading">
+                <Spin size="large" />
+            </div>
             <div className="home-container" ref={homeContainer}>
                 <HomeSliders sliders={props.sliders} getSliders={props.getSliders}/>
-                <LessonLists lessons={props.lessons} getLessons={props.getLessons}/>
+                <LessonLists container={homeContainer} ref={lessonList} lessons={props.lessons} getLessons={props.getLessons}/>
             </div>
         </div>
     );
