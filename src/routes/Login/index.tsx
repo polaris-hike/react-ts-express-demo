@@ -42,7 +42,6 @@ function Login(props: Props) {
   )
 }
 
-// @ts-ignore
 const mapStateToProps = (state: CombinedState): ProfileState => state.profile;
 
 export default connect(

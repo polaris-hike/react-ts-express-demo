@@ -14,6 +14,8 @@ import Profile from '@/routes/Profile';
 import Tabs from "@/components/Tabs";
 import Login from "@/routes/Login";
 import Register from "@/routes/Register";
+import Detail from "@/routes/Detail";
+import Cart from "@/routes/Cart";
 
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
@@ -25,6 +27,8 @@ ReactDOM.render(<Provider store={store}>
             <Route path="/profile" exact component={Profile} />
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
+            <Route path="/detail/:id" exact component={Detail} />
+            <Route path="/cart" exact component={Cart} />
           </Switch>
         </main>
         <Tabs />

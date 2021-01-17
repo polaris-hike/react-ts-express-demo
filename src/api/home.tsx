@@ -8,3 +8,7 @@ export function getSliders() {
 export function getLessons<T>(category:string='all',offset?:number,limit?:number) {
     return axios.get<T,T>(`/lessons/list?category=${category}&offset=${offset}&limit=${limit}`)
 }
+
+export function getLesson<T>(id:string) {
+    return axios.get<T,T>(`/lesson/${id}`)
+}

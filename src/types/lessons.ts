@@ -16,3 +16,8 @@ export interface LessonsData {
     list:Lesson[]
   }
 }
+
+export interface GetLessonsData {
+  success:boolean;
+  data:Lesson
+}

@@ -31,4 +31,19 @@ export default {
       })();
     };
   },
+  refreshLessons(){
+    return function (dispatch: StoreDispatch, getState: StoreGetState) {
+      (async function () {
+        let {currentCategory, lessons: { limit, loading}} = getState().home;
+        if (!loading) {
+          dispatch({type:actionTypes.SET_LESSONS_LOADING, payload:true})
+          const result: LessonsData = await getLessons<LessonsData>(currentCategory, 0, limit);
+          dispatch({
+            type:actionTypes.REFRESH_LESSONS,
+            payload:result.data
+          })
+        }
+      })();
+    };
+  }
 };

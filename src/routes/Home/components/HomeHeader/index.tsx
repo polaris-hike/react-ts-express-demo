@@ -22,6 +22,7 @@ const transitionStyles= {
 interface Props {
     currentCategory:string;
     setCurrentCategory:(currentCategory:string)=>any;
+    refreshLessons:Function
 }
 
 function HomeHeader(props:Props) {
@@ -30,6 +31,7 @@ function HomeHeader(props:Props) {
         const target:HTMLUListElement = event.target as HTMLUListElement;
         const category = target.dataset.category;
         props.setCurrentCategory(category)
+        props.refreshLessons()
         setIsMenuVisible(false)
     }
     const click = ()=>{

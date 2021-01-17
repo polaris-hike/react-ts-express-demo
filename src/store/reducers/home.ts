@@ -41,6 +41,16 @@ export default function (state: HomeState = initialState, action: AnyAction): Ho
           offset: state.lessons.offset + action.payload.list.length
         }
       };
+    case actionType.REFRESH_LESSONS:
+      return {
+        ...state, lessons: {
+          ...state.lessons,
+          loading: false,
+          list: action.payload.list,
+          hasMore: action.payload.hasMore,
+          offset: action.payload.list.length
+        }
+      };
     default:
       return state;
   }
