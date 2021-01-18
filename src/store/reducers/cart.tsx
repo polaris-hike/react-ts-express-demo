@@ -20,7 +20,8 @@ export default function (state: CartState = initialState, action: AnyAction): Ca
             }
             return state
         case actionType.CLEAR_CART_ITEM:
-            return []
+            state.length = 0
+            return state
         case actionType.CHANGE_CART_ITEM_COUNT:
             let changeIndex = state.findIndex(item => item.lesson.id === action.payload.id)
             if (changeIndex !== -1) {
